@@ -1,0 +1,16 @@
+print( "------- Running initialize.chai" );
+
+import( "spirit" );
+
+puts( "mu_B = " );
+print( spirit.mu_B );
+
+// Add some atoms to the basis cell
+print( "    add atoms" );
+for( var i = 1; i < 10; ++i )
+{
+    spirit.add_atom( 0.0, 0.0, double( i ) );
+}
+print( "    atoms added" );
+
+print( "------- Done running initialize.chai" );
