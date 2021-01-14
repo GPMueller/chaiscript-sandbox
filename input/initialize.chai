@@ -1,16 +1,20 @@
 print( "------- Running initialize.chai" );
 
-import( "spirit" );
-
-puts( "mu_B = " );
-print( spirit.mu_B );
+puts( "    mu_B = " );
+print( constants.mu_B );
 
 // Add some atoms to the basis cell
-print( "    add atoms" );
-for( var i = 1; i < 10; ++i )
-{
-    spirit.add_atom( 0.0, 0.0, double( i ) );
-}
+print( "    adding atoms" );
+var factor = 1.0/3.0 * sqrt(2.0);
+geometry.add_atom( factor, 2*factor, 0.0 )
+geometry.add_atom( 2*factor, factor, 0.0 )
 print( "    atoms added" );
+
+geometry.set_n_cells( 100, 100, 1 );
+
+// Set a time-dependent external magnetic field
+hamiltonian_heisenberg.set_dynamic_field(fun(x, y, z, t) {
+        return sin(t);
+    });
 
 print( "------- Done running initialize.chai" );

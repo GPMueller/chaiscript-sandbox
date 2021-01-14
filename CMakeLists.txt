@@ -33,6 +33,7 @@ add_executable( ${EXECUTABLE_NAME} main.cpp )
 
 target_include_directories( ${EXECUTABLE_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/thirdparty/ChaiScript/include
+    ${CMAKE_CURRENT_LIST_DIR}/thirdparty/ChaiScript_Extras/include
     ${CMAKE_CURRENT_LIST_DIR}/thirdparty/filesystem/include
     ${CMAKE_CURRENT_LIST_DIR}/thirdparty/fmt/include )
 
